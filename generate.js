@@ -17,11 +17,11 @@ const appendEngineer = (engineer) => {
                         <li style="list-style: none;" class="col-4">
                             <div class="card p-2">
                                 <div class="card-title">
-                                    <h3 class="border-bottom p-1 text-white bg-primary">${engineer.name}</h3>
+                                    <h3 class="rounded p-1 text-white bg-primary">${engineer.name}</h3>
                                     <br>
                                     <p>${engineer.getRole()}</p>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body p-0">
                                     <ul class="manager-details w-100 list-group">
                                         <li class="list-group-item">Employee ID: ${engineer.id}</li>
                                         <li class="list-group-item">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></li>
@@ -39,11 +39,11 @@ const appendIntern = (intern) => {
                         <li style="list-style: none;" class="col-4">
                             <div class="card p-2">
                                 <div class="card-title">
-                                    <h3 class="border-bottom p-1 text-white bg-primary">${intern.name}</h3>
+                                    <h3 class="rounded p-1 text-white bg-primary">${intern.name}</h3>
                                     <br>
                                     <p>${intern.getRole()}</p>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body p-0">
                                     <ul class="manager-details w-100 list-group">
                                         <li class="list-group-item">Employee ID: ${intern.id}</li>
                                         <li class="list-group-item">Email: <a href="mailto:${intern.email}">${intern.email}</a></li>
@@ -79,7 +79,7 @@ const writeToIndex = (manager) => {
             <div class="manager w-50">
                 <div class="card p-2">
                     <div class="card-title">
-                        <h4 class="border-bottom p-2 text-white bg-primary">${manager.name}</h4>
+                        <h4 class="rounded p-2 text-white bg-primary">${manager.name}</h4>
                         <br>
                         <p>${manager.getRole()}</p>
                     </div>
