@@ -5,6 +5,7 @@ const Manager = require("./classes/Manager");
 const fs = require("fs");
 const inquirer = require("inquirer");
 const generate = require("./generate")
+const questions = require("./questions.js")
 const employeeChoiceArray = ["Intern", "Engineer", "Done"]
 let staff = []; 
 
@@ -12,50 +13,7 @@ class Questions {
 
     getManagerInfo(){
         inquirer
-            .prompt([
-                {
-                    type: "input",
-                    name: "managerName",
-                    message: "Enter the name of your project Manager.",
-                    validate: (managerName) => {
-                        if(managerName === "" || !isNaN(managerName)){
-                            return "Please make a valid entry."
-                        }
-                        return true
-                    }
-                },
-                {
-                    name: "managerID",
-                    message: `Enter your project Manager's employee ID.`,
-                    validate: (managerID) => {
-                        if(managerID.trim() === "" || isNaN(managerID)){
-                            return "Please make a valid entry."
-
-                        }
-                        return true
-                    }
-                },
-                {
-                    name: "email",
-                    message: "Enter the project Manager's email address.",
-                    validate: email => {
-                        if(email.trim() === "" || !email.includes("@")){
-                            return "Please make a vaild entry."
-                        }
-                        return true
-                    }
-                },
-                {
-                    name: "officeNumber",
-                    message: "Enter the project Manager's office number.",
-                    validate: officeNumber => {
-                        if(isNaN(officeNumber)){
-                            return "Please enter a valid number."
-                        }
-                        return true 
-                    }
-                }
-            ])
+            .prompt(questions.managerQ)
             .then(res => {
                 var manager = new Manager(res.managerName, res.managerID, res.email, res.officeNumber);
                 fs.writeFile("index.html", generate.writeToIndex(manager), (err) => {
@@ -88,49 +46,7 @@ class Questions {
 
     getEngineerInfo(){
         inquirer
-            .prompt([
-                {
-                    name: "engineerName",
-                    message: "Enter the engineer's name.",
-                    validate: engineerName => {
-                        if(engineerName.trim() === "" || !isNaN(engineerName)){
-                            return "Please make a valid entry."
-                        }
-                        return true 
-                    }
-                },
-                {
-                    name: "engineerID",
-                    message: "Enter the engineer's employee ID.",
-                    validate: engineerID => {
-                        if(isNaN(engineerID)){
-                            return "Please enter a number ID"
-                        }
-                        return true
-                    }
-                },
-                {
-                    type:"email",
-                    name: "email",
-                    message: "Enter your engineer's email address.",
-                    validate: email => {
-                        if(email.trim() === "" || !email.includes("@")){
-                            return "Please make a valid entry"
-                        }
-                        return true
-                    }
-                },
-                {
-                    name: "github",
-                    message: "Enter your engineer's GitHub username.",
-                    validate: github => {
-                        if(github.trim() === ""){
-                            return "Please make a valid entry."
-                        }
-                        return true 
-                    }
-                }
-            ])
+            .prompt(questions.engineerQ)
             .then(res => {
                 staff.push(new Engineer(res.engineerName, res.engineerID, res.email, res.github))
                 console.log(staff);
@@ -141,49 +57,7 @@ class Questions {
 
     getInternInfo(){
         inquirer
-            .prompt([
-                {
-                    name: "internName",
-                    message: "Enter the intern's name.",
-                    validate: engineerName => {
-                        if(engineerName.trim() === "" || !isNaN(engineerName)){
-                            return "Please make a valid entry."
-                        }
-                        return true 
-                    }
-                },
-                {
-                    name: "internID",
-                    message: "Enter the intern's employee ID.",
-                    validate: engineerID => {
-                        if(isNaN(engineerID)){
-                            return "Please enter a number ID"
-                        }
-                        return true
-                    }
-                },
-                {
-                    type:"email",
-                    name: "email",
-                    message: "Enter your intern's email address.",
-                    validate: email => {
-                        if(email.trim() === "" || !email.includes("@")){
-                            return "Please make a valid entry"
-                        }
-                        return true
-                    }
-                },
-                {
-                    name: "school",
-                    message: "Enter your intern's school of attendance.",
-                    validate: github => {
-                        if(github.trim() === "" || !isNaN(github)){
-                            return "Please make a valid entry."
-                        }
-                        return true 
-                    }
-                }
-            ])
+            .prompt(questions.internQ)
             .then(res => {
                 staff.push(new Intern(res.internName, res.internID, res.email, res.school))
                 console.log(staff);
