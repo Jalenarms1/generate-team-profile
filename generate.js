@@ -1,7 +1,3 @@
-// const jsdom = require("jsdom");
-// const dom = new jsdom.JSDOM("index.html")
-// const $ = require("jquery")(dom.window);
-
 const stackElements = (staff) => {
     let arrOfSections = [];
     staff.forEach(item => {
@@ -21,7 +17,7 @@ const appendEngineer = (engineer) => {
                         <li style="list-style: none;" class="col-4">
                             <div class="card p-2">
                                 <div class="card-title">
-                                    <h3 class="border-bottom py-1 text-white bg-primary">${engineer.name}</h3>
+                                    <h3 class="border-bottom p-1 text-white bg-primary">${engineer.name}</h3>
                                     <br>
                                     <p>${engineer.getRole()}</p>
                                 </div>
@@ -43,7 +39,7 @@ const appendIntern = (intern) => {
                         <li style="list-style: none;" class="col-4">
                             <div class="card p-2">
                                 <div class="card-title">
-                                    <h3 class="border-bottom py-1 text-white bg-primary">${intern.name}</h3>
+                                    <h3 class="border-bottom p-1 text-white bg-primary">${intern.name}</h3>
                                     <br>
                                     <p>${intern.getRole()}</p>
                                 </div>
@@ -83,7 +79,7 @@ const writeToIndex = (manager) => {
             <div class="manager w-50">
                 <div class="card p-2">
                     <div class="card-title">
-                        <h4 class="border-bottom py-2 text-white bg-primary">${manager.name}</h4>
+                        <h4 class="border-bottom p-2 text-white bg-primary">${manager.name}</h4>
                         <br>
                         <p>${manager.getRole()}</p>
                     </div>
