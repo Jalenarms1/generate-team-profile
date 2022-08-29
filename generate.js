@@ -1,3 +1,4 @@
+// this function will taken in an array, loop through each to check the value of the getRole method that returns their type of position, and uses that object as an argument in the following functions while being pushed into the new array to hold the new values, which is then joined by a new line so that it is correctly formatted html list items
 const stackElements = (staff) => {
     let arrOfSections = [];
     staff.forEach(item => {
@@ -11,7 +12,7 @@ const stackElements = (staff) => {
 }
 
 
-
+// this function will take in an object holding info for engineers and produce a string of an html li that will have certain properties of the object in certain places
 const appendEngineer = (engineer) => {
     return `
                         <li style="list-style: none;" class="col-4">
@@ -34,6 +35,7 @@ const appendEngineer = (engineer) => {
 
 }
 
+// this function will take in an object holding info for interns and produce a string of an html li that will have certain properties of the object in certain places
 const appendIntern = (intern) => {
     return `
                         <li style="list-style: none;" class="col-4">
@@ -56,7 +58,7 @@ const appendIntern = (intern) => {
 
 }
 
-
+// this function will take in an object holding info for the manager and produce a string of an html li that will have certain properties of the object in certain places
 const writeToIndex = (manager) => {
     return `<!DOCTYPE html>
     <html lang="en">

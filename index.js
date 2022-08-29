@@ -9,8 +9,10 @@ const questions = require("./questions.js")
 const employeeChoiceArray = ["Intern", "Engineer", "Done"]
 let staff = []; 
 
+// Questions class will control the flow of questions needed to capture user input correctly
 class Questions {
 
+    // this function, after gathering the user input, will create a new object that is an instance of the Manager class, and use that object as an argument in the function that writes the original html layout with just the manager's info shown
     getManagerInfo(){
         inquirer
             .prompt(questions.managerQ)
@@ -23,6 +25,7 @@ class Questions {
             })
     }
 
+    // this will prompt the user to select which type of employee they need to add to their roster next, or they can select done if they want to proceed with what they have so far
     addEmployee(){
         inquirer
             .prompt([
@@ -44,6 +47,7 @@ class Questions {
             })
     }
 
+    // this function, after gathering the user input, will create a new instance of the Engineer class and push it into the staff array 
     getEngineerInfo(){
         inquirer
             .prompt(questions.engineerQ)
@@ -55,6 +59,7 @@ class Questions {
             })
     }
 
+    // this function, after gathering the user input, will create a new instance of the Intern class and push it into the staff array
     getInternInfo(){
         inquirer
             .prompt(questions.internQ)
@@ -66,6 +71,7 @@ class Questions {
             })
     }
 
+    // this function will read the index.html as it is after being written with the manager's info, split it in half by where we need to add our list items and put the pieces all back together to use as a parameter for the writeFile method which will display all of the information gathered on the manager and any additional employees added
     submitResults(){
         fs.readFile("index.html", "utf-8", (err, res) => {
             err ? console.log(err) : console.log(res)
