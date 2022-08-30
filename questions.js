@@ -25,7 +25,7 @@ const managerQ = [
         name: "email",
         message: "Enter the project Manager's email address.",
         validate: email => {
-            if(email.trim() === "" || !email.includes("@")){
+            if(email.trim() === "" || !email.includes("@") || !email.includes(".com")){
                 return "Please make a vaild entry."
             }
             return true
@@ -69,7 +69,7 @@ const engineerQ = [
         name: "email",
         message: "Enter your engineer's email address.",
         validate: email => {
-            if(email.trim() === "" || !email.includes("@")){
+            if(email.trim() === "" || !email.includes("@") || !email.includes(".com")){
                 return "Please make a valid entry"
             }
             return true
@@ -113,7 +113,7 @@ const internQ = [
         name: "email",
         message: "Enter your intern's email address.",
         validate: email => {
-            if(email.trim() === "" || !email.includes("@")){
+            if(email.trim() === "" || !email.includes("@") || !email.includes(".com")){
                 return "Please make a valid entry"
             }
             return true
@@ -130,8 +130,6 @@ const internQ = [
         }
     }
 ];
-
-
 
 module.exports = {
     managerQ,

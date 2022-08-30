@@ -16,7 +16,7 @@ class Questions {
     getManagerInfo(){
         inquirer
             .prompt(questions.managerQ)
-            .then(res => {
+            .then(res => { 
                 var manager = new Manager(res.managerName, res.managerID, res.email, res.officeNumber);
                 fs.writeFile("index.html", generate.writeToIndex(manager), (err) => {
                     err ? console.error(err) : console.log("success")
